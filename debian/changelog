@@ -1,12 +1,83 @@
-accountsservice (0.6.37-3+grm1) unstable; urgency=medium
+accountsservice (0.6.43-1) unstable; urgency=medium
 
-  [ jongkyung.woo ]
-  * [c58178dd] add 0001-formats-locale-property.patch from ubuntu
-  * [5a9ce529] set pristine-tar to False in gbp.conf
+  * Adopt package under pkg-freedesktop. Closes: #842851.
+  * Add myself to Uploaders.
+  * New upstream release. Closes: #841672.
+  * debian/patches/0002-create-and-manage-groups-like-on-a-debian-system.patch,
+    debian/patches/1002-dont-override-standardoutput.patch:
+    + Updated to apply with the new version.
+  * debian/patches/0014-libsystemd.patch:
+    + Removed, applied upstream.
+  * Refreshed all patches.
+  * debian/rules: Fail the build if the symbols file is outdated.
+  * debian/libaccountsservice0.symbols: Updated for new symbols.
+  * Use dh-exec to install linux-only files.
+  * Unconditionally install language-tools.
+  * debhelper enables autoreconf, systemd and parallel builds by default
+    in compat 10, no need to set those anymore.
+  * debian/rules: Don't call dh_girepository directly. Use dh gir sequence
+    instead.
 
-  [ Gooroom Autobuilder ]
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 29 Dec 2016 16:17:42 +0100
 
- -- Gooroom Autobuilder <jenkins@gooroom.kr>  Wed, 08 Feb 2017 10:09:05 +0900
+accountsservice (0.6.40-4) unstable; urgency=medium
+
+  [ Dr. Tobias Quathamer ]
+  * QA upload.
+  * Use debhelper v10
+  * Add Multi-Arch: foreign to -doc package
+  * Set maintainer to Debian QA Group <packages@qa.debian.org>
+  * Update Vcs-Browser URL
+
+  [ Laurent Bigonville ]
+  * debian/rules: Fix FTBFS when building arch:all packages only.
+    Thanks to Santiago Vila <sanvila@unex.es> (Closes: #805989)
+  * 0015-debian-nologin-path.patch: Use debian specific path for nologin executable
+    (Closes: #805086)
+  * Drop the -dbg package and rely on the automatically built -dbgsym one
+  * debian/control: Use https for the Vcs-* and Homepage URL's
+  * debian/control: Bump Standards-Version to 3.9.8 (no further changes)
+
+  [ Alessio Treglia ]
+  * Multiarchify-ication.
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Sat, 26 Nov 2016 22:28:05 +0100
+
+accountsservice (0.6.40-3) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Alessio Treglia ]
+  * Update b-d according to libsystemd transition.
+  * libaccountsservice-dev dependencies fix.
+
+  [ Michael Biebl ]
+  * Transition to libsystemd. (Closes: #779740)
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 27 Aug 2015 02:45:14 +0200
+
+accountsservice (0.6.40-2) unstable; urgency=medium
+
+  * Build docs unconditionally to prevent FTBFS.
+
+ -- Alessio Treglia <alessio@debian.org>  Wed, 03 Jun 2015 11:56:11 +0100
+
+accountsservice (0.6.40-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #787581):
+    - Fix SIGSEGV with UID numbers larger than 2^31. (Closes: #759563)
+  * Update patchset against new sources:
+    - Refresh patches.
+    - Drop 1001-buildsystem.patch, seems unnecessary.
+  * Refresh libaccountsservice0.symbols.
+  * Revert "Use ./autogen.sh in dh_autoreconf to fix binary-arch build
+    failure".
+  * Remove debian/clean to avoid deletion of gtk-doc.make.
+  * Update debian/watch
+  * Update Homepage
+  * Bump Standards
+
+ -- Alessio Treglia <alessio@debian.org>  Wed, 03 Jun 2015 08:28:07 +0100
 
 accountsservice (0.6.37-3) unstable; urgency=medium
 

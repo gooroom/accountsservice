@@ -70,6 +70,9 @@ libaccountsservice.so.0 libaccountsservice0 #MINVER#
  accounts_user_call_set_locked_sync@Base 0.6.18
  accounts_user_call_set_password@Base 0.6.18
  accounts_user_call_set_password_finish@Base 0.6.18
+ accounts_user_call_set_password_hint@Base 0.6.43
+ accounts_user_call_set_password_hint_finish@Base 0.6.43
+ accounts_user_call_set_password_hint_sync@Base 0.6.43
  accounts_user_call_set_password_mode@Base 0.6.18
  accounts_user_call_set_password_mode_finish@Base 0.6.18
  accounts_user_call_set_password_mode_sync@Base 0.6.18
@@ -95,6 +98,7 @@ libaccountsservice.so.0 libaccountsservice0 #MINVER#
  accounts_user_complete_set_location@Base 0.6.18
  accounts_user_complete_set_locked@Base 0.6.18
  accounts_user_complete_set_password@Base 0.6.18
+ accounts_user_complete_set_password_hint@Base 0.6.43
  accounts_user_complete_set_password_mode@Base 0.6.18
  accounts_user_complete_set_real_name@Base 0.6.18
  accounts_user_complete_set_shell@Base 0.6.18
@@ -216,6 +220,8 @@ libaccountsservice.so.0 libaccountsservice0 #MINVER#
  act_user_manager_list_users@Base 0.6.8
  act_user_manager_no_service@Base 0.6.30
  act_user_manager_uncache_user@Base 0.6.24
+ act_user_manager_uncache_user_async@Base 0.6.40
+ act_user_manager_uncache_user_finish@Base 0.6.40
  act_user_password_mode_get_type@Base 0.6.8
  act_user_set_account_type@Base 0.6.8
  act_user_set_automatic_login@Base 0.6.8
@@ -225,6 +231,7 @@ libaccountsservice.so.0 libaccountsservice0 #MINVER#
  act_user_set_location@Base 0.6.8
  act_user_set_locked@Base 0.6.8
  act_user_set_password@Base 0.6.8
+ act_user_set_password_hint@Base 0.6.43
  act_user_set_password_mode@Base 0.6.8
  act_user_set_real_name@Base 0.6.8
  act_user_set_user_name@Base 0.6.8
