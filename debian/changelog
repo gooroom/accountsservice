@@ -1,3 +1,13 @@
+accountsservice (0.6.37-3+grm1) unstable; urgency=medium
+
+  [ jongkyung.woo ]
+  * [c58178dd] add 0001-formats-locale-property.patch from ubuntu
+  * [5a9ce529] set pristine-tar to False in gbp.conf
+
+  [ Gooroom Autobuilder ]
+
+ -- Gooroom Autobuilder <jenkins@gooroom.kr>  Wed, 08 Feb 2017 10:09:05 +0900
+
 accountsservice (0.6.37-3) unstable; urgency=medium
 
   * Do not override DefaultStandardOutput, it could be helpful for sysadmins
