@@ -1,3 +1,13 @@
+accountsservice (0.6.43-1+grm1) unstable; urgency=medium
+
+  [ jongkyung.woo ]
+  * [6fdc8d82] Imported Gooroom Patchset
+  * [88e36664] Update patches from ubuntu
+
+  [ Gooroom Autobuilder ]
+
+ -- Gooroom Autobuilder <jenkins@gooroom.kr>  Tue, 30 May 2017 14:49:22 +0900
+
 accountsservice (0.6.43-1) unstable; urgency=medium
 
   * Adopt package under pkg-freedesktop. Closes: #842851.
