@@ -6,3 +6,4 @@
 0009-language-tools.patch
 1002-dont-override-standardoutput.patch
 0015-debian-nologin-path.patch
+0020-gooroom-encrypt-home.patch
