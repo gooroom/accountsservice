@@ -1,21 +1,27 @@
-accountsservice (0.6.43-1+grm1u1) unstable; urgency=medium
+accountsservice (0.6.45-2) unstable; urgency=medium
 
-  [ cjheo ]
-  * [aa97e31f] Add a patch to suport for encrypting home folder
+  [ Robert Ancell ]
+  * debian/patches/0006-adduser_instead_of_useradd.patch:
+    - Merged into 0002-create-and-manage-groups-like-on-a-debian-system.patch
+  * debian/patches/*:
+    - Removed unused patches.
 
-  [ Gooroom Autobuilder ]
+  [ Emilio Pozuelo Monfort ]
+  * debian/control: Update Vcs-* for move to salsa.debian.org.
 
- -- Gooroom Autobuilder <jenkins@gooroom.kr>  Mon, 13 Nov 2017 14:43:54 +0900
+  [ Salvatore Bonaccorso ]
+  * user: fix insufficient path prefix check (CVE-2018-14036)
+    (Closes: #903828)
 
-accountsservice (0.6.43-1+grm1) unstable; urgency=medium
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 05 Mar 2019 11:05:07 +0100
 
-  [ jongkyung.woo ]
-  * [6fdc8d82] Imported Gooroom Patchset
-  * [88e36664] Update patches from ubuntu
+accountsservice (0.6.45-1) unstable; urgency=medium
 
-  [ Gooroom Autobuilder ]
+  * New upstream release.
+  * debian/libaccountsservice0.symbols: add new symbols.
+  * debian/control: bump Standards-Version to 4.1.0; no changes needed.
 
- -- Gooroom Autobuilder <jenkins@gooroom.kr>  Tue, 30 May 2017 14:49:22 +0900
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 27 Sep 2017 23:20:10 +0200
 
 accountsservice (0.6.43-1) unstable; urgency=medium
 
