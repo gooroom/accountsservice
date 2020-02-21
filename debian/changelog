@@ -1,3 +1,12 @@
+accountsservice (0.6.45-2+grm2u1) unstable; urgency=medium
+
+  [ donghun ]
+  * [04311872] [Bug:1800] Fixed auto login status when using lightdm
+
+  [ Gooroom Autobuilder ]
+
+ -- Gooroom Autobuilder <jenkins@gooroom.kr>  Mon, 10 Feb 2020 19:01:40 +0900
+
 accountsservice (0.6.45-2) unstable; urgency=medium
 
   [ Robert Ancell ]
