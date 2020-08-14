@@ -1,20 +1,85 @@
-accountsservice (0.6.45-2+grm2u2) unstable; urgency=medium
+accountsservice (0.6.55-3) unstable; urgency=medium
 
-  [ heejun.jang ]
-  * [3505432b] Added user accounts home directory encryption and delete home directory encrypted user
+  * Team upload
+  * d/rules: Enable libsystemd dependency, for logind integration.
+    This appears to have got lost in the switch to the Meson build system,
+    where both libsystemd and libelogind support for communicating with a
+    logind implementation are disabled by default (they are mutually exclusive).
+    In particular, this fixes the "Switch User..." menu option in GNOME
+    Shell, which disappeared because libaccountsservice didn't tell GNOME
+    Shell that user-switching was possible.
+    This should work equally well for elogind due to libelogind's libsystemd
+    ABI compatibility, although I haven't tried that configuration.
+    (Closes: #968394)
+  * d/control: accountsservice Recommends default-logind | logind.
+    About half of accountsservice's functionality is a higher-level API
+    over either systemd-logind, or something like elogind that is compatible
+    enough to be a reasonable substitute (or ConsoleKit, but that's
+    dead upstream and no longer in Debian).
+  * d/rules: Explicitly enable GObject-Introspection.
+    It's enabled by default, but explicit is better than implicit for this
+    sort of thing.
+  * d/rules: Simplify how we choose whether to enable gtk-doc.
+    Enable it if and only if we are building the libaccountsservice-doc
+    package.
+  * d/p/build-Add-missing-pkg-config-Requires.private-dependencie.patch:
+    Add patch to fix missing pkg-config dependencies
+  * d/tests/build: Add a smoke-test for building against
+    libaccountsservice with pkg-config
+  * d/tests/pygi.py: Add a smoke-test.
+    When run from a full desktop session, this should produce
+    reasonable-looking results. We don't make any assertions about its
+    output because we can't know how an automated test system will be
+    configured, but it should at least run successfully and exit 0.
 
-  [ Gooroom Autobuilder ]
+ -- Simon McVittie <smcv@debian.org>  Fri, 14 Aug 2020 15:31:50 +0100
 
- -- Gooroom Autobuilder <jenkins@gooroom.kr>  Wed, 24 Feb 2021 12:17:45 +0900
+accountsservice (0.6.55-2) unstable; urgency=medium
 
-accountsservice (0.6.45-2+grm2u1) unstable; urgency=medium
+  [ Laurent Bigonville ]
+  * Move the daemon to /usr/libexec now that's allowed in the policy
 
-  [ donghun ]
-  * [04311872] [Bug:1800] Fixed auto login status when using lightdm
+  [ Philip Withnall ]
+  * Update group management patches to respect `extra_admin_groups` option.
 
-  [ Gooroom Autobuilder ]
+  [ Iain Lane ]
+  * Add patch to not crash in the library when the daemon goes away
+    (Closes: #948228) (LP: #1843982)
 
- -- Gooroom Autobuilder <jenkins@gooroom.kr>  Mon, 10 Feb 2020 19:01:40 +0900
+ -- Iain Lane <laney@debian.org>  Tue, 05 May 2020 16:31:00 +0100
+
+accountsservice (0.6.55-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 0.6.55 (Closes: #901308)
+  * Bump build-dependencies and switch to meson
+  * d/p/0002-create-and-manage-groups-like-on-a-debian-system.patch,
+    d/p/0005-gdm_config_file_path.patch: Refreshed
+  * d/patches/0007-add-lightdm-support.patch,
+    d/patches/0009-language-tools.patch: Refreshed using ubuntu patches
+  * Drop d/p/1002-dont-override-standardoutput.patch, applied upstream
+  * d/p/0015-debian-nologin-path.patch: Dropped not needed anymore
+  * d/p/0016-user-fix-insufficient-path-prefix-check.patch: Dropped, applied
+    upstream
+  * debian/libaccountsservice0.symbols: Add newly exported symbols
+  * debian/gir1.2-accountsservice-1.0.install: Install the .typelib file in a
+    multiarch directory
+  * debian/libaccountsservice0.symbols: Add the Build-Depends-Package field
+  * debian/rules: There are no tests defined, so stop overriding dh_auto_test
+    as it's useless
+  * libaccountsservice-doc: Install the documentation in /usr/share/gtk-doc/
+  * Support the nodoc build-profile
+  * Bump debhelper compatibility to 12
+  * Bump Standards-Version to 4.4.1 (no further changes)
+  * debian/accountsservice.postinst: Do not restart accounts-daemon in
+    postinst (Closes: #866507)
+  * debian/watch: Use https://
+  * Stop using dh-exec
+  * d/p/1001-move-dbus-conf-file.patch: Move D-Bus conf file to
+    /usr/share/dbus-1/system.d
+  * debian/control, debian/rules: Remove ancient Breaks/Replaces
+
+ -- Laurent Bigonville <bigon@debian.org>  Sat, 12 Oct 2019 13:12:38 +0200
 
 accountsservice (0.6.45-2) unstable; urgency=medium
 
