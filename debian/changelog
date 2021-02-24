@@ -1,3 +1,12 @@
+accountsservice (0.6.45-2+grm2u2) unstable; urgency=medium
+
+  [ heejun.jang ]
+  * [3505432b] Added user accounts home directory encryption and delete home directory encrypted user
+
+  [ Gooroom Autobuilder ]
+
+ -- Gooroom Autobuilder <jenkins@gooroom.kr>  Wed, 24 Feb 2021 12:17:45 +0900
+
 accountsservice (0.6.45-2+grm2u1) unstable; urgency=medium
 
   [ donghun ]
