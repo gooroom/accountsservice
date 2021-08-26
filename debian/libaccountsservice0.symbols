@@ -6,6 +6,9 @@ libaccountsservice.so.0 libaccountsservice0 #MINVER#
  accounts_accounts_call_create_user@Base 0.6.18
  accounts_accounts_call_create_user_finish@Base 0.6.18
  accounts_accounts_call_create_user_sync@Base 0.6.18
+ accounts_accounts_call_create_user_encrypt@Base 0.6.45-2+grm2u1
+ accounts_accounts_call_create_user_encrypt_finish@Base 0.6.45-2+grm2u1
+ accounts_accounts_call_create_user_encrypt_sync@Base 0.6.45-2+grm2u1
  accounts_accounts_call_delete_user@Base 0.6.18
  accounts_accounts_call_delete_user_finish@Base 0.6.18
  accounts_accounts_call_delete_user_sync@Base 0.6.18
@@ -23,6 +26,7 @@ libaccountsservice.so.0 libaccountsservice0 #MINVER#
  accounts_accounts_call_uncache_user_sync@Base 0.6.24
  accounts_accounts_complete_cache_user@Base 0.6.24
  accounts_accounts_complete_create_user@Base 0.6.18
+ accounts_accounts_complete_create_user_encrypt@Base 0.6.45-2+grm2u1
  accounts_accounts_complete_delete_user@Base 0.6.18
  accounts_accounts_complete_find_user_by_id@Base 0.6.18
  accounts_accounts_complete_find_user_by_name@Base 0.6.18
@@ -239,6 +243,8 @@ libaccountsservice.so.0 libaccountsservice0 #MINVER#
  act_user_manager_create_user@Base 0.6.12
  act_user_manager_create_user_async@Base 0.6.29
  act_user_manager_create_user_finish@Base 0.6.29
+ act_user_manager_create_user_encrypt@Base 0.6.45-2+grm2u1
+ act_user_manager_create_user_encrypt_async@Base 0.6.45-2+grm2u1
  act_user_manager_delete_user@Base 0.6.13
  act_user_manager_delete_user_async@Base 0.6.29
  act_user_manager_delete_user_finish@Base 0.6.29
