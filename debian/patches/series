@@ -9,3 +9,4 @@ build-Add-missing-pkg-config-Requires.private-dependencie.patch
 gooroom-fixed-auto-login-status.patch
 accountsservice_encrypt_home.patch
 gooroom-updated-home-directory-encrypted-user-delete.patch
+gooroom-fixed-static-code-analysis-issue.patch
