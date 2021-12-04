@@ -1,3 +1,14 @@
+accountsservice (0.6.55-3+grm3u1) unstable; urgency=medium
+
+  [ heejun.jang ]
+  * [dced6965] [Bug:1800]Fixed auto login status when using lightdm
+  * [ac4b2ff7] Added user accounts home directory encryption and delete home directory encrypted user
+
+  [ subin.kim ]
+  * [a35a51ef] Fixed static code analysis issue
+
+ -- Gooroom Autobuilder <jenkins@gooroom.kr>  Sat, 04 Dec 2021 17:09:35 +0900
+
 accountsservice (0.6.55-3) unstable; urgency=medium
 
   * Team upload
