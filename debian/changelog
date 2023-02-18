@@ -1,13 +1,142 @@
-accountsservice (0.6.55-3+grm3u1) unstable; urgency=medium
+accountsservice (22.08.8-6) unstable; urgency=medium
 
-  [ heejun.jang ]
-  * [dced6965] [Bug:1800]Fixed auto login status when using lightdm
-  * [ac4b2ff7] Added user accounts home directory encryption and delete home directory encrypted user
+  * Team upload
+  * d/p/daemon-Don-t-crash-if-etc-shadow-doesn-t-exist.patch:
+    Add patch to prevent a crash if /etc/shadow is missing or empty
+    (Closes: #1031309)
+  * d/patches: Mark most patches as having been applied upstream
 
-  [ subin.kim ]
-  * [a35a51ef] Fixed static code analysis issue
+ -- Simon McVittie <smcv@debian.org>  Sat, 18 Feb 2023 09:22:31 +0000
 
- -- Gooroom Autobuilder <jenkins@gooroom.kr>  Sat, 04 Dec 2021 17:09:35 +0900
+accountsservice (22.08.8-5) unstable; urgency=medium
+
+  * Team upload
+  * d/p/user-Use-correct-format-strings-to-print-accounts_user_ge.patch,
+    d/p/Annotate-varargs-functions-with-G_GNUC_PRINTF.patch:
+    Add proposed patches to fix autopkgtest failure on armel and armhf.
+    A format string error led to a segfault on these architectures.
+  * d/tests/integration.py: Set up libnss-systemd correctly.
+    This doesn't actually matter for what we do in this test, but the
+    format string was wrong, which would have resulted in getpwuid failing.
+  * d/tests/integration.py: Add copyright/licensing headers
+  * d/tests/integration.py: Resolve a TODO comment
+  * d/tests/integration.py: Don't wait forever for state to change
+  * d/tests/integration.py: Lint fixes
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 07 Feb 2023 13:46:10 +0000
+
+accountsservice (22.08.8-4) unstable; urgency=medium
+
+  * Team upload
+  * d/p/daemon-Clarify-use-of-generator_state-users.patch,
+    d/p/daemon-Define-local-users-as-being-exactly-those-present-.patch:
+    Replace previous solution for #1030262 with the version that was merged
+    upstream.
+    This has the effect that users existing in /etc/passwd but not
+    /etc/shadow are treated as remote, which is as intended by upstream
+    but had unintentionally regressed in 0.6.50.
+    - d/p/daemon-Enumerate-all-users-in-etc-passwd-to-decide-which-.patch:
+      Drop patch, superseded by the above
+  * d/p/user-Replace-usermod-p-with-chpasswd-e.patch:
+    Mark as having been applied upstream
+
+ -- Simon McVittie <smcv@debian.org>  Sun, 05 Feb 2023 21:50:37 +0000
+
+accountsservice (22.08.8-3) unstable; urgency=medium
+
+  * Team upload
+  * d/control: accountsservice Recommends polkitd.
+    Without polkitd, its D-Bus interface will be essentially read-only.
+  * d/tests/integration.py: Add an integration test.
+    Among other things, this exercises #1030253 and #1030262, and detected
+    the missing Recommends on polkitd.
+  * d/p/user-Replace-usermod-p-with-chpasswd-e.patch:
+    Add patch to avoid (encrypted) password being briefly visible in /proc
+    (Closes: #757912; CVE-2012-6655)
+    - d/tests/integration.py: Assert that CVE-2012-6655 was avoided
+  * d/copyright: Fix a typo detected by Lintian
+  * Standards-Version: 4.6.2 (no changes required)
+
+ -- Simon McVittie <smcv@debian.org>  Sun, 05 Feb 2023 19:07:46 +0000
+
+accountsservice (22.08.8-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Luca Boccassi ]
+  * accountsservice: depend on default-dbus-system-bus | dbus-system-bus,
+    instead of requiring a specific implementation
+
+  [ Simon McVittie ]
+  * d/control: Build-depend on polkitd instead of transitional policykit-1
+    (Closes: #1025542)
+  * d/patches: Re-export patch series (no functional changes)
+  * d/p/0002-create-and-manage-groups-like-on-a-debian-system.patch:
+    Call adduser with --disabled-password instead of --disabled-login.
+    These options did essentially the same thing in Debian 11, and probably
+    older versions.
+    Since adduser 3.130, --disabled-login has the additional effect of
+    setting the user's shell to /usr/sbin/nologin, which is not the expected
+    default when adding a user via an interface intended for managing
+    human users' interactive login accounts. Switching to --disabled-password
+    preserves previous functionality here.
+    (Closes: #1030253)
+  * d/p/daemon-Enumerate-all-users-in-etc-passwd-to-decide-which-.patch:
+    Add proposed fix for local users sometimes being treated as remote,
+    which results in a misleading UX in gnome-control-center
+    (Closes: #1030262)
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 03 Feb 2023 15:51:06 +0000
+
+accountsservice (22.08.8-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * Upstream commits to prevent FTBFS:
+    - d/p/tests-fix-the-signature-for-the-SetLocked-call.patch
+    - d/p/tests-fix-invocation-of-AddUser.patch
+  * Drop d/p/0009-language-tools.patch
+  * debian/libaccountsservice0.symbols:
+    - Add new expiration policy related symbols
+  * Bump Standards-Version to 4.6.1
+
+ -- Gunnar Hjalmarsson <gunnarhj@debian.org>  Fri, 27 May 2022 00:07:53 +0200
+
+accountsservice (22.07.5-2) unstable; urgency=medium
+
+  * d/p/0002-create-and-manage-groups-like-on-a-debian-system.patch:
+    - change back to error out if adding the user to a group fails but
+      don't try to use a non existant group instead
+  * d/p/0009-language-tools.patch:
+    - restore permission marker that got lost by doing a quilt refresh,
+      without those the script lack +x permission
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 22 Feb 2022 12:10:38 +0100
+
+accountsservice (22.07.5-1) unstable; urgency=medium
+
+  * New upstream version
+  * Remove the patches which are included in the update
+  * d/p/0002-create-and-manage-groups-like-on-a-debian-system.patch:
+    - changed to warn when trying to add the user to non existant
+      groups rather than erroring out since the list is static and some
+      default groups are created by optional packages.
+  * debian/accountsservice.install:
+    - install the new user-templates
+  * debian/control, debian/compat:
+    - include the build-depends needed for the tests and the vapis
+    - updated libglib and meson requirements
+    - use current debhelper and standards versions
+  * debian/libaccountsservice0.symbols:
+    - updated for the new version, the consolekit option has been removed
+      but those symbols were not part of the public API
+  * debian/libaccountsservice-dev.install:
+    - install the vapis
+  * debian/rules:
+    - don't try to install the NEWS file which isn't provided anymore
+    - remove the non existant systemd option
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 21 Feb 2022 20:50:26 +0100
 
 accountsservice (0.6.55-3) unstable; urgency=medium
 
